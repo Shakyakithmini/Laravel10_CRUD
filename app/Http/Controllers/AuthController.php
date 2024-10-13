@@ -53,6 +53,17 @@ public function loginAction(Request $request)
 
     return redirect()->route('dashboard');
 }
-}
+public function logout(Request $request)
+{
+    Auth::guard('web')->logout();
 
+    $request->session()->invalidate();
+
+    return redirect('/');
+}
+public function profile()
+{
+    return view('profile');
+}
+};
 
